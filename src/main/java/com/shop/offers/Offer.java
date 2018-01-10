@@ -6,4 +6,6 @@ package com.shop.offers;
 public interface Offer {
 
     int getOfferFactor();
+    int getOfferMultiplier();
+    double calculatePrice(int quantity, double unitPrice);
 }
