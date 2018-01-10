@@ -25,7 +25,7 @@ public class CheckoutTest {
         basket.add("Apple");
         basket.add("Orange");
         basket.add("Apple");
-        Assert.assertEquals(till.billItems(basket), 2.05, 0);
+        Assert.assertEquals(till.billItems(basket), 1.45, 0);
     }
 
     @Test
@@ -49,5 +49,43 @@ public class CheckoutTest {
         Assert.assertEquals(till.billItems(basket), 0.85, 0);
 
     }
+
+    @Test
+    public void generateReceiptFOrApplesOnOffer() {
+        List<String> basket = new ArrayList<>();
+        basket.add("Apple");
+        basket.add("Apple");
+        Assert.assertEquals(till.billItems(basket), 0.60, 0);
+    }
+
+
+    @Test
+    public void generateReceiptFOrApples() {
+        List<String> basket = new ArrayList<>();
+        basket.add("Apple");
+        basket.add("Apple");
+        basket.add("Apple");
+        Assert.assertEquals(till.billItems(basket), 1.20, 0);
+    }
+
+
+    @Test
+    public void generateReceiptFOrOrangesOnOffer() {
+        List<String> basket = new ArrayList<>();
+        basket.add("Orange");
+        basket.add("Orange");
+        basket.add("Orange");
+        Assert.assertEquals(till.billItems(basket), 0.50, 0);
+    }
+
+
+    @Test
+    public void generateReceiptFOrLessOranges() {
+        List<String> basket = new ArrayList<>();
+        basket.add("Orange");
+        basket.add("Orange");
+        Assert.assertEquals(till.billItems(basket), 0.50 , 0);
+    }
+
 
 }
